@@ -1,0 +1,32 @@
+
+
+Tarik Pecaninovic 26946831
+\\
+Question 1
+
+* a) 
+
+We are given three functions which describe the derivative of three functions, x,y, and z, with respect to time (i.e., differential equations). 
+The three functions are coupled in that they depend on each other and not time. To solve the system (given $r$ and $s$) using RK2, at each time step
+we approximate the values of x,y, and z using the previously computed values and the values of the derivatives evaluated at these previously computed
+values (i.e., we use (x_i,y_i,z_i) and x', y', z' evaluated at this point to compute (x_{i+1},y_{i+1},z_{i+1}). The code implementing this (and which produced
+the figures below) is in the script q1_ rockpaperscissors_ RK2.py
+
+\\
+We set $r=-1$ and $s=1$ and plot for the intial conditions v_1 = (0.2,0.3,0.5), v_2 = (0.3,0.2,0.5), v_3 = (0.2,0.5,0.3), v_4 = (0.5,0.3,0.2), v_5 = (0.3,0.5,0.2), and v_6 = (0.5,0.2,0.3)
+(figures shown in the files vi_A_plot.png where 1\leq i \leq 6). Note that the initial conditionas above account for all permutations of the sizes of the numbers in each coordinate. For
+example v_1 has x_0 the smallest, y_0 in-between and z_0 the largest, v_4 is reversed, etc.
+\\ 
+From the figures we observe that the six intial conditions can fall into one of two types; where two initial conditions being in the same type implies they have the same overall behaviour.
+We see in v_2, v_3, and v_4 the variable corresponding to the smallest and largest value decreases linearly, while the other variable increases linaerly, until a stationary state is reached
+and all three become constant. In the other case though we have the reverse occuring (e.g., the variable with the largest intial condition decreases linearly until its stationary value is reached).
+
+
+
+* b) 
+
+Repeating the above but with r=1, s=1 first and then r=-1,s=-1 we obtain the plots vi_ B_ pos_ plot.py and vi_ B_ neg_ plot.py  for 1\leq i\leq 6.
+We observe that when r+s>0, all three variables decrease linearly until a stationary state is reached. Moreover, the values of each of the variables
+in the stationary state depend on not just the the initial values, but the ordering of the sizes of the intial values. For example, we see that v2 to v4
+are the same up to permutation of variables and similarly for v1,v5, and v6. \\
+When r+s<0 we observe a similar situation as to the above except that the variables are linearly increasing instead of decreasing.

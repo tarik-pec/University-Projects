@@ -1,0 +1,31 @@
+
+import numpy as np
+
+def canonicalMat(markov):
+    markov = np.array(markov)
+    #finds all the absorbing states by looking for '1' on the main diagonal
+    absorbing_states = []
+    for i in range(len(markov)):
+        if markov[i][i] == 1:
+            absorbing_states.append(i)
+
+    k = len(markov)-1
+    for i in range(len(absorbing_states)-1,-1,-1):
+        #absorbing states to correct row then the '1' to correct column
+        markov[[absorbing_states[i],k]] = markov[[k,absorbing_states[i]]]
+        markov[:,[absorbing_states[i],k]] = markov[:,[k,absorbing_states[i]]]
+        k -= 1
+
+        
+    return markov
+
+
+
+test = [[1,0,0,0,0,0],
+        [0,1,0,0,0,0],
+        [0,0,1,0,0,0],
+        [0,0,0,1,0,0],
+        [float(1)/6,float(1)/6,float(1)/6,float(1)/6,float(2)/6,0],
+        [float(1)/6,float(1)/6,float(1)/6,float(1)/6,float(2)/6,0]]
+
+print(canonicalMat(test))
